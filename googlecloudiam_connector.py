@@ -1,6 +1,6 @@
 # File: googlecloudiam_connector.py
 #
-# Copyright (c) 2021 Splunk Inc.
+# Copyright (c) 2021-2022 Splunk Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,22 +16,23 @@
 #
 # Python 3 Compatibility imports
 from __future__ import print_function, unicode_literals
-import json
+
 import base64
+import json
 import os
 import tempfile
 
+import googleapiclient.discovery
 # Phantom App imports
 import phantom.app as phantom
-from phantom.base_connector import BaseConnector
+from google.oauth2 import service_account
+from googleapiclient import errors
 from phantom.action_result import ActionResult
+from phantom.base_connector import BaseConnector
 from phantom.vault import Vault
 
 # Usage of the consts file is recommended
 from googlecloudiam_consts import *
-import googleapiclient.discovery
-from google.oauth2 import service_account
-from googleapiclient import errors
 
 
 class RetVal(tuple):
@@ -378,8 +379,9 @@ class GoogleCloudIamConnector(BaseConnector):
 
 
 def main():
-    import pudb
     import argparse
+
+    import pudb
     import requests
 
     pudb.set_trace()

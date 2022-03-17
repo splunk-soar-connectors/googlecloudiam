@@ -1,6 +1,6 @@
 # File: googlecloudiam_consts.py
 #
-# Copyright (c) 2021 Splunk Inc.
+# Copyright (c) 2021-2022 Splunk Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -23,10 +23,10 @@ ERR_MSG_UNAVAILABLE = "Error message unavailable. Please check the asset configu
 PARSE_ERR_MSG = "Unable to parse the error message. Please check the asset configuration and|or action parameters"
 API_CLIENT_ERR_MSG = "Could not create API client"
 INVALID_SERVICE_ACCOUNT_JSON = "Please provide a valid value in the 'Contents of Service Account JSON file' asset configuration parameter"
-LIST_SERVICE_ACCOUNT_KEY_SUCCESS_MSG = "Successfully retrieved the service account key(s)"
-GET_SERVICE_ACCOUNT_KEY_SUCCESS_MSG = "Successfully retrieved the service account key"
-DELETE_SERVICE_ACCOUNT_KEY_SUCCESS_MSG = "Successfully deleted the service account key"
-CREATE_SERVICE_ACCOUNT_KEY_SUCCESS_MSG = "Successfully created the service account key"
+LIST_SERVICE_ACCOUNT_KEY_SUCCESS_MSG = "Successfully retrieved the service account key(s)"  # pragma: allowlist secret
+GET_SERVICE_ACCOUNT_KEY_SUCCESS_MSG = "Successfully retrieved the service account key"  # pragma: allowlist secret
+DELETE_SERVICE_ACCOUNT_KEY_SUCCESS_MSG = "Successfully deleted the service account key"  # pragma: allowlist secret
+CREATE_SERVICE_ACCOUNT_KEY_SUCCESS_MSG = "Successfully created the service account key"  # pragma: allowlist secret
 GET_SERVICE_ACCOUNT_SUCCESS_MSG = "Successfully retrieved the service account"
 DISABLE_SERVICE_ACCOUNT_SUCCESS_MSG = "Successfully disabled the service account"
 ENABLE_SERVICE_ACCOUNT_SUCCESS_MSG = "Successfully enabled the service account"
