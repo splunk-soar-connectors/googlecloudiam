@@ -23,7 +23,6 @@ import os
 import tempfile
 
 import googleapiclient.discovery
-from rsa import verify
 # Phantom App imports
 import phantom.app as phantom
 from google.oauth2 import service_account
@@ -381,10 +380,10 @@ class GoogleCloudIamConnector(BaseConnector):
 
 def main():
     import argparse
+    import sys
 
     import pudb
     import requests
-    import sys
 
     pudb.set_trace()
 
