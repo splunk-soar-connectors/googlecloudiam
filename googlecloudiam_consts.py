@@ -18,15 +18,15 @@
 IAM_SERVICE_NAME = 'iam'
 IAM_SERVICE_VERSION = 'v1'
 
-ERR_CODE_MSG = "Error code unavailable"
-ERR_MSG_UNAVAILABLE = "Error message unavailable. Please check the asset configuration and|or action parameters"
-PARSE_ERR_MSG = "Unable to parse the error message. Please check the asset configuration and|or action parameters"
-API_CLIENT_ERR_MSG = "Could not create API client"
+ERROR_CODE_MESSAGE = "Error code unavailable"
+ERROR_MESSAGE_UNAVAILABLE = "Error message unavailable. Please check the asset configuration and|or action parameters"
+PARSE_ERROR_MESSAGE = "Unable to parse the error message. Please check the asset configuration and|or action parameters"
+API_CLIENT_ERROR_MESSAGE = "Could not create API client"
 INVALID_SERVICE_ACCOUNT_JSON = "Please provide a valid value in the 'Contents of Service Account JSON file' asset configuration parameter"
-LIST_SERVICE_ACCOUNT_KEY_SUCCESS_MSG = "Successfully retrieved the service account key(s)"  # pragma: allowlist secret
-GET_SERVICE_ACCOUNT_KEY_SUCCESS_MSG = "Successfully retrieved the service account key"  # pragma: allowlist secret
-DELETE_SERVICE_ACCOUNT_KEY_SUCCESS_MSG = "Successfully deleted the service account key"  # pragma: allowlist secret
-CREATE_SERVICE_ACCOUNT_KEY_SUCCESS_MSG = "Successfully created the service account key"  # pragma: allowlist secret
-GET_SERVICE_ACCOUNT_SUCCESS_MSG = "Successfully retrieved the service account"
-DISABLE_SERVICE_ACCOUNT_SUCCESS_MSG = "Successfully disabled the service account"
-ENABLE_SERVICE_ACCOUNT_SUCCESS_MSG = "Successfully enabled the service account"
+LIST_SERVICE_ACCOUNT_KEY_SUCCESS_MESSAGE = "Successfully retrieved the service account key(s)"  # pragma: allowlist secret
+GET_SERVICE_ACCOUNT_KEY_SUCCESS_MESSAGE = "Successfully retrieved the service account key"  # pragma: allowlist secret
+DELETE_SERVICE_ACCOUNT_KEY_SUCCESS_MESSAGE = "Successfully deleted the service account key"  # pragma: allowlist secret
+CREATE_SERVICE_ACCOUNT_KEY_SUCCESS_MESSAGE = "Successfully created the service account key"  # pragma: allowlist secret
+GET_SERVICE_ACCOUNT_SUCCESS_MESSAGE = "Successfully retrieved the service account"
+DISABLE_SERVICE_ACCOUNT_SUCCESS_MESSAGE = "Successfully disabled the service account"
+ENABLE_SERVICE_ACCOUNT_SUCCESS_MESSAGE = "Successfully enabled the service account"

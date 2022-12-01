@@ -59,24 +59,24 @@ class GoogleCloudIamConnector(BaseConnector):
                     error_code = e.args[0]
                     error_msg = e.args[1]
                 elif len(e.args) == 1:
-                    error_code = ERR_CODE_MSG
+                    error_code = ERROR_CODE_MESSAGE
                     error_msg = e.args[0]
             else:
-                error_code = ERR_CODE_MSG
-                error_msg = ERR_MSG_UNAVAILABLE
+                error_code = ERROR_CODE_MESSAGE
+                error_msg = ERROR_MESSAGE_UNAVAILABLE
         except:
-            error_code = ERR_CODE_MSG
-            error_msg = ERR_MSG_UNAVAILABLE
+            error_code = ERROR_CODE_MESSAGE
+            error_msg = ERROR_MESSAGE_UNAVAILABLE
 
         try:
-            if error_code in ERR_CODE_MSG:
+            if error_code in ERROR_CODE_MESSAGE:
                 error_text = "Error Message: {0}".format(error_msg)
             else:
                 error_text = "Error Code: {0}. Error Message: {1}".format(
                     error_code, error_msg)
         except:
             self.debug_print("Error occurred while parsing the error message")
-            error_text = PARSE_ERR_MSG
+            error_text = PARSE_ERROR_MESSAGE
 
         return error_text
 
@@ -123,7 +123,7 @@ class GoogleCloudIamConnector(BaseConnector):
         self.save_progress("Connecting to endpoint")
 
         if not self._create_client(action_result):
-            self.save_progress(API_CLIENT_ERR_MSG)
+            self.save_progress(API_CLIENT_ERROR_MESSAGE)
             self.save_progress("Test Connectivity Failed")
             return action_result.get_status()
 
@@ -135,7 +135,7 @@ class GoogleCloudIamConnector(BaseConnector):
         action_result = self.add_action_result(ActionResult(dict(param)))
 
         if not self._create_client(action_result):
-            self.save_progress(API_CLIENT_ERR_MSG)
+            self.save_progress(API_CLIENT_ERROR_MESSAGE)
             return action_result.get_status()
 
         # Required values can be accessed directly
@@ -153,14 +153,14 @@ class GoogleCloudIamConnector(BaseConnector):
             return ret_val
 
         action_result.add_data(response)
-        return action_result.set_status(phantom.APP_SUCCESS, LIST_SERVICE_ACCOUNT_KEY_SUCCESS_MSG)
+        return action_result.set_status(phantom.APP_SUCCESS, LIST_SERVICE_ACCOUNT_KEY_SUCCESS_MESSAGE)
 
     def _handle_get_serviceaccountkey(self, param):
         self.save_progress("In action handler for: {0}".format(self.get_action_identifier()))
         action_result = self.add_action_result(ActionResult(dict(param)))
 
         if not self._create_client(action_result):
-            self.save_progress(API_CLIENT_ERR_MSG)
+            self.save_progress(API_CLIENT_ERROR_MESSAGE)
             return action_result.get_status()
 
         # Required values can be accessed directly
@@ -179,14 +179,14 @@ class GoogleCloudIamConnector(BaseConnector):
             return ret_val
 
         action_result.add_data(response)
-        return action_result.set_status(phantom.APP_SUCCESS, GET_SERVICE_ACCOUNT_KEY_SUCCESS_MSG)
+        return action_result.set_status(phantom.APP_SUCCESS, GET_SERVICE_ACCOUNT_KEY_SUCCESS_MESSAGE)
 
     def _handle_delete_serviceaccountkey(self, param):
         self.save_progress("In action handler for: {0}".format(self.get_action_identifier()))
         action_result = self.add_action_result(ActionResult(dict(param)))
 
         if not self._create_client(action_result):
-            self.save_progress(API_CLIENT_ERR_MSG)
+            self.save_progress(API_CLIENT_ERROR_MESSAGE)
             return action_result.get_status()
 
         # Required values can be accessed directly
@@ -205,14 +205,14 @@ class GoogleCloudIamConnector(BaseConnector):
             return ret_val
 
         action_result.add_data(response)
-        return action_result.set_status(phantom.APP_SUCCESS, DELETE_SERVICE_ACCOUNT_KEY_SUCCESS_MSG)
+        return action_result.set_status(phantom.APP_SUCCESS, DELETE_SERVICE_ACCOUNT_KEY_SUCCESS_MESSAGE)
 
     def _handle_create_serviceaccountkey(self, param):
         self.save_progress("In action handler for: {0}".format(self.get_action_identifier()))
         action_result = self.add_action_result(ActionResult(dict(param)))
 
         if not self._create_client(action_result):
-            self.save_progress(API_CLIENT_ERR_MSG)
+            self.save_progress(API_CLIENT_ERROR_MESSAGE)
             return action_result.get_status()
 
         # Required values can be accessed directly
@@ -249,14 +249,14 @@ class GoogleCloudIamConnector(BaseConnector):
                 return action_result.set_status(phantom.APP_ERROR, err)
 
         action_result.add_data(response)
-        return action_result.set_status(phantom.APP_SUCCESS, CREATE_SERVICE_ACCOUNT_KEY_SUCCESS_MSG)
+        return action_result.set_status(phantom.APP_SUCCESS, CREATE_SERVICE_ACCOUNT_KEY_SUCCESS_MESSAGE)
 
     def _handle_get_serviceaccount(self, param):
         self.save_progress("In action handler for: {0}".format(self.get_action_identifier()))
         action_result = self.add_action_result(ActionResult(dict(param)))
 
         if not self._create_client(action_result):
-            self.save_progress(API_CLIENT_ERR_MSG)
+            self.save_progress(API_CLIENT_ERROR_MESSAGE)
             return action_result.get_status()
 
         # Required values can be accessed directly
@@ -274,14 +274,14 @@ class GoogleCloudIamConnector(BaseConnector):
             return ret_val
 
         action_result.add_data(response)
-        return action_result.set_status(phantom.APP_SUCCESS, GET_SERVICE_ACCOUNT_SUCCESS_MSG)
+        return action_result.set_status(phantom.APP_SUCCESS, GET_SERVICE_ACCOUNT_SUCCESS_MESSAGE)
 
     def _handle_disable_serviceaccount(self, param):
         self.save_progress("In action handler for: {0}".format(self.get_action_identifier()))
         action_result = self.add_action_result(ActionResult(dict(param)))
 
         if not self._create_client(action_result):
-            self.save_progress(API_CLIENT_ERR_MSG)
+            self.save_progress(API_CLIENT_ERROR_MESSAGE)
             return action_result.get_status()
 
         # Required values can be accessed directly
@@ -299,14 +299,14 @@ class GoogleCloudIamConnector(BaseConnector):
             return ret_val
 
         action_result.add_data(response)
-        return action_result.set_status(phantom.APP_SUCCESS, DISABLE_SERVICE_ACCOUNT_SUCCESS_MSG)
+        return action_result.set_status(phantom.APP_SUCCESS, DISABLE_SERVICE_ACCOUNT_SUCCESS_MESSAGE)
 
     def _handle_enable_serviceaccount(self, param):
         self.save_progress("In action handler for: {0}".format(self.get_action_identifier()))
         action_result = self.add_action_result(ActionResult(dict(param)))
 
         if not self._create_client(action_result):
-            self.save_progress(API_CLIENT_ERR_MSG)
+            self.save_progress(API_CLIENT_ERROR_MESSAGE)
             return action_result.get_status()
 
         # Required values can be accessed directly
@@ -324,7 +324,7 @@ class GoogleCloudIamConnector(BaseConnector):
             return ret_val
 
         action_result.add_data(response)
-        return action_result.set_status(phantom.APP_SUCCESS, ENABLE_SERVICE_ACCOUNT_SUCCESS_MSG)
+        return action_result.set_status(phantom.APP_SUCCESS, ENABLE_SERVICE_ACCOUNT_SUCCESS_MESSAGE)
 
     def handle_action(self, param):
         ret_val = phantom.APP_SUCCESS
