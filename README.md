@@ -2,11 +2,11 @@
 # Google Cloud IAM
 
 Publisher: Splunk Community  
-Connector Version: 1\.0\.4  
+Connector Version: 1.0.5  
 Product Vendor: Google  
 Product Name: Cloud IAM  
-Product Version Supported (regex): "\.\*"  
-Minimum Product Version: 5\.3\.5  
+Product Version Supported (regex): ".\*"  
+Minimum Product Version: 5.3.5  
 
 This app integrates with Google Cloud IAM
 
@@ -43,7 +43,7 @@ The below configuration variables are required for this Connector to operate.  T
 
 VARIABLE | REQUIRED | TYPE | DESCRIPTION
 -------- | -------- | ---- | -----------
-**key\_json** |  required  | password | Contents of Service Account JSON file
+**key_json** |  required  | password | Contents of Service Account JSON file
 **project** |  required  | string | Google Cloud Project ID
 
 ### Supported Actions  
@@ -80,15 +80,15 @@ PARAMETER | REQUIRED | DESCRIPTION | TYPE | CONTAINS
 **account** |  required  | Email address or the uniqueId of the service account | string |  `email` 
 
 #### Action Output
-DATA PATH | TYPE | CONTAINS
---------- | ---- | --------
-action\_result\.parameter\.account | string |  `email` 
-action\_result\.data | string | 
-action\_result\.status | string | 
-action\_result\.message | string | 
-action\_result\.summary | string | 
-summary\.total\_objects | numeric | 
-summary\.total\_objects\_successful | numeric |   
+DATA PATH | TYPE | CONTAINS | EXAMPLE VALUES
+--------- | ---- | -------- | --------------
+action_result.parameter.account | string |  `email`  |  
+action_result.data | string |  |  
+action_result.status | string |  |   success  failed 
+action_result.message | string |  |  
+action_result.summary | string |  |  
+summary.total_objects | numeric |  |   1 
+summary.total_objects_successful | numeric |  |   1   
 
 ## action: 'disable serviceaccount'
 Disables a ServiceAccount immediately
@@ -102,15 +102,15 @@ PARAMETER | REQUIRED | DESCRIPTION | TYPE | CONTAINS
 **account** |  required  | Email address or the uniqueId of the service account | string |  `email` 
 
 #### Action Output
-DATA PATH | TYPE | CONTAINS
---------- | ---- | --------
-action\_result\.parameter\.account | string |  `email` 
-action\_result\.data | string | 
-action\_result\.status | string | 
-action\_result\.message | string | 
-action\_result\.summary | string | 
-summary\.total\_objects | numeric | 
-summary\.total\_objects\_successful | numeric |   
+DATA PATH | TYPE | CONTAINS | EXAMPLE VALUES
+--------- | ---- | -------- | --------------
+action_result.parameter.account | string |  `email`  |  
+action_result.data | string |  |  
+action_result.status | string |  |   success  failed 
+action_result.message | string |  |  
+action_result.summary | string |  |  
+summary.total_objects | numeric |  |   1 
+summary.total_objects_successful | numeric |  |   1   
 
 ## action: 'get serviceaccount'
 Gets a ServiceAccount
@@ -124,20 +124,20 @@ PARAMETER | REQUIRED | DESCRIPTION | TYPE | CONTAINS
 **account** |  required  | Email address or the uniqueId of the service account | string |  `email` 
 
 #### Action Output
-DATA PATH | TYPE | CONTAINS
---------- | ---- | --------
-action\_result\.parameter\.account | string |  `email` 
-action\_result\.data\.\*\.displayName | string | 
-action\_result\.data\.\*\.email | string | 
-action\_result\.data\.\*\.etag | string | 
-action\_result\.data\.\*\.name | string | 
-action\_result\.data\.\*\.projectId | string | 
-action\_result\.data\.\*\.uniqueId | string | 
-action\_result\.status | string | 
-action\_result\.message | string | 
-action\_result\.summary | string | 
-summary\.total\_objects | numeric | 
-summary\.total\_objects\_successful | numeric |   
+DATA PATH | TYPE | CONTAINS | EXAMPLE VALUES
+--------- | ---- | -------- | --------------
+action_result.parameter.account | string |  `email`  |  
+action_result.data.\*.displayName | string |  |  
+action_result.data.\*.email | string |  |  
+action_result.data.\*.etag | string |  |  
+action_result.data.\*.name | string |  |  
+action_result.data.\*.projectId | string |  |  
+action_result.data.\*.uniqueId | string |  |  
+action_result.status | string |  |   success  failed 
+action_result.message | string |  |  
+action_result.summary | string |  |  
+summary.total_objects | numeric |  |   1 
+summary.total_objects_successful | numeric |  |   1   
 
 ## action: 'list serviceaccountkey'
 Lists every ServiceAccountKey for a service account
@@ -151,20 +151,20 @@ PARAMETER | REQUIRED | DESCRIPTION | TYPE | CONTAINS
 **account** |  required  | Email address or the uniqueId of the service account | string |  `email` 
 
 #### Action Output
-DATA PATH | TYPE | CONTAINS
---------- | ---- | --------
-action\_result\.parameter\.account | string |  `email` 
-action\_result\.data\.0\.keys\.\*\.keyAlgorithm | string | 
-action\_result\.data\.0\.keys\.\*\.keyOrigin | string | 
-action\_result\.data\.0\.keys\.\*\.keyType | string | 
-action\_result\.data\.0\.keys\.\*\.name | string | 
-action\_result\.data\.0\.keys\.\*\.validAfterTime | string | 
-action\_result\.data\.0\.keys\.\*\.validBeforeTime | string | 
-action\_result\.status | string | 
-action\_result\.message | string | 
-action\_result\.summary | string | 
-summary\.total\_objects | numeric | 
-summary\.total\_objects\_successful | numeric |   
+DATA PATH | TYPE | CONTAINS | EXAMPLE VALUES
+--------- | ---- | -------- | --------------
+action_result.parameter.account | string |  `email`  |  
+action_result.data.0.keys.\*.keyAlgorithm | string |  |  
+action_result.data.0.keys.\*.keyOrigin | string |  |  
+action_result.data.0.keys.\*.keyType | string |  |  
+action_result.data.0.keys.\*.name | string |  |  
+action_result.data.0.keys.\*.validAfterTime | string |  |  
+action_result.data.0.keys.\*.validBeforeTime | string |  |  
+action_result.status | string |  |   success  failed 
+action_result.message | string |  |  
+action_result.summary | string |  |  
+summary.total_objects | numeric |  |   1 
+summary.total_objects_successful | numeric |  |   1   
 
 ## action: 'get serviceaccountkey'
 Gets a ServiceAccountKey
@@ -179,21 +179,21 @@ PARAMETER | REQUIRED | DESCRIPTION | TYPE | CONTAINS
 **key** |  required  | Name of key | string |  `gcloudiam key` 
 
 #### Action Output
-DATA PATH | TYPE | CONTAINS
---------- | ---- | --------
-action\_result\.parameter\.account | string |  `email` 
-action\_result\.parameter\.key | string |  `gcloudiam key` 
-action\_result\.data\.0\.keyAlgorithm | string | 
-action\_result\.data\.0\.keyOrigin | string | 
-action\_result\.data\.0\.keyType | string | 
-action\_result\.data\.0\.name | string | 
-action\_result\.data\.0\.validAfterTime | string | 
-action\_result\.data\.0\.validBeforeTime | string | 
-action\_result\.status | string | 
-action\_result\.message | string | 
-action\_result\.summary | string | 
-summary\.total\_objects | numeric | 
-summary\.total\_objects\_successful | numeric |   
+DATA PATH | TYPE | CONTAINS | EXAMPLE VALUES
+--------- | ---- | -------- | --------------
+action_result.parameter.account | string |  `email`  |  
+action_result.parameter.key | string |  `gcloudiam key`  |  
+action_result.data.0.keyAlgorithm | string |  |  
+action_result.data.0.keyOrigin | string |  |  
+action_result.data.0.keyType | string |  |  
+action_result.data.0.name | string |  |  
+action_result.data.0.validAfterTime | string |  |  
+action_result.data.0.validBeforeTime | string |  |  
+action_result.status | string |  |   success  failed 
+action_result.message | string |  |  
+action_result.summary | string |  |  
+summary.total_objects | numeric |  |   1 
+summary.total_objects_successful | numeric |  |   1   
 
 ## action: 'delete serviceaccountkey'
 Deletes a ServiceAccountKey
@@ -208,16 +208,16 @@ PARAMETER | REQUIRED | DESCRIPTION | TYPE | CONTAINS
 **key** |  required  | Name of key | string |  `gcloudiam key` 
 
 #### Action Output
-DATA PATH | TYPE | CONTAINS
---------- | ---- | --------
-action\_result\.parameter\.account | string |  `email` 
-action\_result\.parameter\.key | string |  `gcloudiam key` 
-action\_result\.data | string | 
-action\_result\.status | string | 
-action\_result\.message | string | 
-action\_result\.summary | string | 
-summary\.total\_objects | numeric | 
-summary\.total\_objects\_successful | numeric |   
+DATA PATH | TYPE | CONTAINS | EXAMPLE VALUES
+--------- | ---- | -------- | --------------
+action_result.parameter.account | string |  `email`  |  
+action_result.parameter.key | string |  `gcloudiam key`  |  
+action_result.data | string |  |  
+action_result.status | string |  |   success  failed 
+action_result.message | string |  |  
+action_result.summary | string |  |  
+summary.total_objects | numeric |  |   1 
+summary.total_objects_successful | numeric |  |   1   
 
 ## action: 'create serviceaccountkey'
 Creates a ServiceAccountKey
@@ -229,24 +229,24 @@ Read only: **False**
 PARAMETER | REQUIRED | DESCRIPTION | TYPE | CONTAINS
 --------- | -------- | ----------- | ---- | --------
 **account** |  required  | Email address or the uniqueId of the service account | string |  `email` 
-**save\_key\_to\_vault** |  optional  | Whether or not to save the key to vault | boolean | 
+**save_key_to_vault** |  optional  | Whether or not to save the key to vault | boolean | 
 
 #### Action Output
-DATA PATH | TYPE | CONTAINS
---------- | ---- | --------
-action\_result\.parameter\.account | string |  `email` 
-action\_result\.parameter\.save\_key\_to\_vault | boolean | 
-action\_result\.data\.0\.filename | string | 
-action\_result\.data\.0\.keyAlgorithm | string | 
-action\_result\.data\.0\.keyOrigin | string | 
-action\_result\.data\.0\.keyType | string | 
-action\_result\.data\.0\.name | string | 
-action\_result\.data\.0\.privateKeyData | string | 
-action\_result\.data\.0\.validAfterTime | string | 
-action\_result\.data\.0\.validBeforeTime | string | 
-action\_result\.data\.0\.vault\_id | string | 
-action\_result\.status | string | 
-action\_result\.message | string | 
-action\_result\.summary | string | 
-summary\.total\_objects | numeric | 
-summary\.total\_objects\_successful | numeric | 
+DATA PATH | TYPE | CONTAINS | EXAMPLE VALUES
+--------- | ---- | -------- | --------------
+action_result.parameter.account | string |  `email`  |  
+action_result.parameter.save_key_to_vault | boolean |  |  
+action_result.data.0.filename | string |  |  
+action_result.data.0.keyAlgorithm | string |  |  
+action_result.data.0.keyOrigin | string |  |  
+action_result.data.0.keyType | string |  |  
+action_result.data.0.name | string |  |  
+action_result.data.0.privateKeyData | string |  |  
+action_result.data.0.validAfterTime | string |  |  
+action_result.data.0.validBeforeTime | string |  |  
+action_result.data.0.vault_id | string |  |  
+action_result.status | string |  |   success  failed 
+action_result.message | string |  |  
+action_result.summary | string |  |  
+summary.total_objects | numeric |  |   1 
+summary.total_objects_successful | numeric |  |   1 
