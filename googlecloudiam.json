@@ -75,7 +75,7 @@
             },
             {
                 "module": "pyparsing",
-                "input_file": "wheels/py3/pyparsing-3.1.2-py3-none-any.whl"
+                "input_file": "wheels/py3/pyparsing-3.1.4-py3-none-any.whl"
             },
             {
                 "module": "rsa",
@@ -741,7 +741,7 @@
             },
             {
                 "module": "google_api_core",
-                "input_file": "wheels/py3/google_api_core-2.19.1-py3-none-any.whl"
+                "input_file": "wheels/py3/google_api_core-2.19.2-py3-none-any.whl"
             },
             {
                 "module": "google_api_python_client",
@@ -781,7 +781,7 @@
             },
             {
                 "module": "pyparsing",
-                "input_file": "wheels/py3/pyparsing-3.1.2-py3-none-any.whl"
+                "input_file": "wheels/py3/pyparsing-3.1.4-py3-none-any.whl"
             },
             {
                 "module": "rsa",

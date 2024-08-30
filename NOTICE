@@ -12,8 +12,3 @@ Library: protobuf
 Version: 3.19.0
 License: BSD 3
 Copyright 2008 Google Inc
-
-Library: requests
-Version: 2.25.1
-License: Apache 2.0
-Kenneth Reitz
