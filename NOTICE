@@ -1,5 +1,5 @@
 Splunk SOAR Google Cloud IAM
-Copyright (c) 2021-2022 Splunk Inc.
+Copyright (c) 2021-2024 Splunk Inc.
 
 Third-party Software Attributions:
 
@@ -12,8 +12,3 @@ Library: protobuf
 Version: 3.19.0
 License: BSD 3
 Copyright 2008 Google Inc
-
-Library: requests
-Version: 2.25.1
-License: Apache 2.0
-Kenneth Reitz
