@@ -1,6 +1,6 @@
 # File: googlecloudiam_consts.py
 #
-# Copyright (c) 2021-2024 Splunk Inc.
+# Copyright (c) 2021-2025 Splunk Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,8 +15,8 @@
 #
 #
 # Define your constants here
-IAM_SERVICE_NAME = 'iam'
-IAM_SERVICE_VERSION = 'v1'
+IAM_SERVICE_NAME = "iam"
+IAM_SERVICE_VERSION = "v1"
 
 ERROR_CODE_MESSAGE = "Error code unavailable"
 ERROR_MESSAGE_UNAVAILABLE = "Error message unavailable. Please check the asset configuration and|or action parameters"

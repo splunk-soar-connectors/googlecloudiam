@@ -1,6 +1,6 @@
 # File: googlecloudiam_connector.py
 #
-# Copyright (c) 2021-2024 Splunk Inc.
+# Copyright (c) 2021-2025 Splunk Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,7 +15,6 @@
 #
 #
 # Python 3 Compatibility imports
-from __future__ import print_function, unicode_literals
 
 import base64
 import json
@@ -23,6 +22,7 @@ import os
 import tempfile
 
 import googleapiclient.discovery
+
 # Phantom App imports
 import phantom.app as phantom
 from google.oauth2 import service_account
@@ -36,19 +36,17 @@ from googlecloudiam_consts import *
 
 
 class RetVal(tuple):
-
     def __new__(cls, val1, val2=None):
         return tuple.__new__(RetVal, (val1, val2))
 
 
 class GoogleCloudIamConnector(BaseConnector):
-
     def __init__(self):
-        super(GoogleCloudIamConnector, self).__init__()
+        super().__init__()
         self._state = None
 
     def _get_error_message_from_exception(self, e):
-        """ This method is used to get appropriate error messages from the exception.
+        """This method is used to get appropriate error messages from the exception.
         :param e: Exception object
         :return: error message
         """
@@ -70,10 +68,9 @@ class GoogleCloudIamConnector(BaseConnector):
 
         try:
             if error_code in ERROR_CODE_MESSAGE:
-                error_text = "Error Message: {0}".format(error_message)
+                error_text = f"Error Message: {error_message}"
             else:
-                error_text = "Error Code: {0}. Error Message: {1}".format(
-                    error_code, error_message)
+                error_text = f"Error Code: {error_code}. Error Message: {error_message}"
         except:
             self.debug_print("Error occurred while parsing the error message")
             error_text = PARSE_ERROR_MESSAGE
@@ -88,18 +85,14 @@ class GoogleCloudIamConnector(BaseConnector):
 
         try:
             credentials = service_account.Credentials.from_service_account_info(
-                service_account_json, scopes=[
-                    "https://www.googleapis.com/auth/cloud-platform"])
-
-            self._client = googleapiclient.discovery.build(
-                IAM_SERVICE_NAME,
-                IAM_SERVICE_VERSION,
-                credentials=credentials
+                service_account_json, scopes=["https://www.googleapis.com/auth/cloud-platform"]
             )
+
+            self._client = googleapiclient.discovery.build(IAM_SERVICE_NAME, IAM_SERVICE_VERSION, credentials=credentials)
 
         except Exception as e:
             err = self._get_error_message_from_exception(e)
-            return action_result.set_status(phantom.APP_ERROR, "Could not create google api client: {0}".format(err))
+            return action_result.set_status(phantom.APP_ERROR, f"Could not create google api client: {err}")
 
         return phantom.APP_SUCCESS
 
@@ -108,13 +101,13 @@ class GoogleCloudIamConnector(BaseConnector):
             response = request.execute()
         except errors.HttpError as e:
             err = self._get_error_message_from_exception(e)
-            return RetVal(action_result.set_status(phantom.APP_ERROR, 'Google API HTTP Error: {}'.format(err)), None)
+            return RetVal(action_result.set_status(phantom.APP_ERROR, f"Google API HTTP Error: {err}"), None)
         except errors.Error as e:
             err = self._get_error_message_from_exception(e)
-            return RetVal(action_result.set_status(phantom.APP_ERROR, 'Google API Request Error: {}'.format(err)), None)
+            return RetVal(action_result.set_status(phantom.APP_ERROR, f"Google API Request Error: {err}"), None)
         except Exception as e:
             err = self._get_error_message_from_exception(e)
-            return RetVal(action_result.set_status(phantom.APP_ERROR, 'Error Processing Request: {}'.format(err)), None)
+            return RetVal(action_result.set_status(phantom.APP_ERROR, f"Error Processing Request: {err}"), None)
 
         return phantom.APP_SUCCESS, response
 
@@ -131,7 +124,7 @@ class GoogleCloudIamConnector(BaseConnector):
         return action_result.set_status(phantom.APP_SUCCESS)
 
     def _handle_list_serviceaccountkey(self, param):
-        self.save_progress("In action handler for: {0}".format(self.get_action_identifier()))
+        self.save_progress(f"In action handler for: {self.get_action_identifier()}")
         action_result = self.add_action_result(ActionResult(dict(param)))
 
         if not self._create_client(action_result):
@@ -139,7 +132,7 @@ class GoogleCloudIamConnector(BaseConnector):
             return action_result.get_status()
 
         # Required values can be accessed directly
-        account = param['account']
+        account = param["account"]
 
         name = f"projects/{self.project}/serviceAccounts/{account}"
         try:
@@ -156,7 +149,7 @@ class GoogleCloudIamConnector(BaseConnector):
         return action_result.set_status(phantom.APP_SUCCESS, LIST_SERVICE_ACCOUNT_KEY_SUCCESS_MESSAGE)
 
     def _handle_get_serviceaccountkey(self, param):
-        self.save_progress("In action handler for: {0}".format(self.get_action_identifier()))
+        self.save_progress(f"In action handler for: {self.get_action_identifier()}")
         action_result = self.add_action_result(ActionResult(dict(param)))
 
         if not self._create_client(action_result):
@@ -164,8 +157,8 @@ class GoogleCloudIamConnector(BaseConnector):
             return action_result.get_status()
 
         # Required values can be accessed directly
-        account = param['account']
-        key = param['key']
+        account = param["account"]
+        key = param["key"]
 
         name = f"projects/{self.project}/serviceAccounts/{account}/keys/{key}"
         try:
@@ -182,7 +175,7 @@ class GoogleCloudIamConnector(BaseConnector):
         return action_result.set_status(phantom.APP_SUCCESS, GET_SERVICE_ACCOUNT_KEY_SUCCESS_MESSAGE)
 
     def _handle_delete_serviceaccountkey(self, param):
-        self.save_progress("In action handler for: {0}".format(self.get_action_identifier()))
+        self.save_progress(f"In action handler for: {self.get_action_identifier()}")
         action_result = self.add_action_result(ActionResult(dict(param)))
 
         if not self._create_client(action_result):
@@ -190,8 +183,8 @@ class GoogleCloudIamConnector(BaseConnector):
             return action_result.get_status()
 
         # Required values can be accessed directly
-        account = param['account']
-        key = param['key']
+        account = param["account"]
+        key = param["key"]
 
         name = f"projects/{self.project}/serviceAccounts/{account}/keys/{key}"
         try:
@@ -208,7 +201,7 @@ class GoogleCloudIamConnector(BaseConnector):
         return action_result.set_status(phantom.APP_SUCCESS, DELETE_SERVICE_ACCOUNT_KEY_SUCCESS_MESSAGE)
 
     def _handle_create_serviceaccountkey(self, param):
-        self.save_progress("In action handler for: {0}".format(self.get_action_identifier()))
+        self.save_progress(f"In action handler for: {self.get_action_identifier()}")
         action_result = self.add_action_result(ActionResult(dict(param)))
 
         if not self._create_client(action_result):
@@ -216,7 +209,7 @@ class GoogleCloudIamConnector(BaseConnector):
             return action_result.get_status()
 
         # Required values can be accessed directly
-        account = param['account']
+        account = param["account"]
         save_key = param.get("save_key_to_vault")
 
         name = f"projects/{self.project}/serviceAccounts/{account}"
@@ -233,7 +226,7 @@ class GoogleCloudIamConnector(BaseConnector):
             try:
                 key_encoded = response["privateKeyData"]
                 key_name = os.path.basename(response["name"])
-                key_filename = f'{key_name}.json'
+                key_filename = f"{key_name}.json"
                 key = base64.b64decode(key_encoded)
                 vault_path = Vault.get_vault_tmp_dir()
                 file_desc, file_path = tempfile.mkstemp(dir=vault_path)
@@ -252,7 +245,7 @@ class GoogleCloudIamConnector(BaseConnector):
         return action_result.set_status(phantom.APP_SUCCESS, CREATE_SERVICE_ACCOUNT_KEY_SUCCESS_MESSAGE)
 
     def _handle_get_serviceaccount(self, param):
-        self.save_progress("In action handler for: {0}".format(self.get_action_identifier()))
+        self.save_progress(f"In action handler for: {self.get_action_identifier()}")
         action_result = self.add_action_result(ActionResult(dict(param)))
 
         if not self._create_client(action_result):
@@ -260,7 +253,7 @@ class GoogleCloudIamConnector(BaseConnector):
             return action_result.get_status()
 
         # Required values can be accessed directly
-        account = param['account']
+        account = param["account"]
 
         name = f"projects/{self.project}/serviceAccounts/{account}"
         try:
@@ -277,7 +270,7 @@ class GoogleCloudIamConnector(BaseConnector):
         return action_result.set_status(phantom.APP_SUCCESS, GET_SERVICE_ACCOUNT_SUCCESS_MESSAGE)
 
     def _handle_disable_serviceaccount(self, param):
-        self.save_progress("In action handler for: {0}".format(self.get_action_identifier()))
+        self.save_progress(f"In action handler for: {self.get_action_identifier()}")
         action_result = self.add_action_result(ActionResult(dict(param)))
 
         if not self._create_client(action_result):
@@ -285,7 +278,7 @@ class GoogleCloudIamConnector(BaseConnector):
             return action_result.get_status()
 
         # Required values can be accessed directly
-        account = param['account']
+        account = param["account"]
 
         name = f"projects/{self.project}/serviceAccounts/{account}"
         try:
@@ -302,7 +295,7 @@ class GoogleCloudIamConnector(BaseConnector):
         return action_result.set_status(phantom.APP_SUCCESS, DISABLE_SERVICE_ACCOUNT_SUCCESS_MESSAGE)
 
     def _handle_enable_serviceaccount(self, param):
-        self.save_progress("In action handler for: {0}".format(self.get_action_identifier()))
+        self.save_progress(f"In action handler for: {self.get_action_identifier()}")
         action_result = self.add_action_result(ActionResult(dict(param)))
 
         if not self._create_client(action_result):
@@ -310,7 +303,7 @@ class GoogleCloudIamConnector(BaseConnector):
             return action_result.get_status()
 
         # Required values can be accessed directly
-        account = param['account']
+        account = param["account"]
 
         name = f"projects/{self.project}/serviceAccounts/{account}"
         try:
@@ -334,28 +327,28 @@ class GoogleCloudIamConnector(BaseConnector):
 
         self.debug_print("action_id", self.get_action_identifier())
 
-        if action_id == 'test_connectivity':
+        if action_id == "test_connectivity":
             ret_val = self._handle_test_connectivity(param)
 
-        elif action_id == 'list_serviceaccountkey':
+        elif action_id == "list_serviceaccountkey":
             ret_val = self._handle_list_serviceaccountkey(param)
 
-        elif action_id == 'get_serviceaccountkey':
+        elif action_id == "get_serviceaccountkey":
             ret_val = self._handle_get_serviceaccountkey(param)
 
-        elif action_id == 'delete_serviceaccountkey':
+        elif action_id == "delete_serviceaccountkey":
             ret_val = self._handle_delete_serviceaccountkey(param)
 
-        elif action_id == 'create_serviceaccountkey':
+        elif action_id == "create_serviceaccountkey":
             ret_val = self._handle_create_serviceaccountkey(param)
 
-        elif action_id == 'get_serviceaccount':
+        elif action_id == "get_serviceaccount":
             ret_val = self._handle_get_serviceaccount(param)
 
-        elif action_id == 'disable_serviceaccount':
+        elif action_id == "disable_serviceaccount":
             ret_val = self._handle_disable_serviceaccount(param)
 
-        elif action_id == 'enable_serviceaccount':
+        elif action_id == "enable_serviceaccount":
             ret_val = self._handle_enable_serviceaccount(param)
 
         return ret_val
@@ -389,10 +382,10 @@ def main():
 
     argparser = argparse.ArgumentParser()
 
-    argparser.add_argument('input_test_json', help='Input Test JSON file')
-    argparser.add_argument('-u', '--username', help='username', required=False)
-    argparser.add_argument('-p', '--password', help='password', required=False)
-    argparser.add_argument('-v', '--verify', action='store_true', help='verify', required=False, default=False)
+    argparser.add_argument("input_test_json", help="Input Test JSON file")
+    argparser.add_argument("-u", "--username", help="username", required=False)
+    argparser.add_argument("-p", "--password", help="password", required=False)
+    argparser.add_argument("-v", "--verify", action="store_true", help="verify", required=False, default=False)
 
     args = argparser.parse_args()
     session_id = None
@@ -402,31 +395,31 @@ def main():
     verify = args.verify
 
     if username is not None and password is None:
-
         # User specified a username but not a password, so ask
         import getpass
+
         password = getpass.getpass("Password: ")
 
     if username and password:
         try:
-            login_url = GoogleCloudIamConnector._get_phantom_base_url() + '/login'
+            login_url = GoogleCloudIamConnector._get_phantom_base_url() + "/login"
 
             print("Accessing the Login page")
             r = requests.get(login_url, verify=verify, timeout=60)
-            csrftoken = r.cookies['csrftoken']
+            csrftoken = r.cookies["csrftoken"]
 
             data = dict()
-            data['username'] = username
-            data['password'] = password
-            data['csrfmiddlewaretoken'] = csrftoken
+            data["username"] = username
+            data["password"] = password
+            data["csrfmiddlewaretoken"] = csrftoken
 
             headers = dict()
-            headers['Cookie'] = 'csrftoken=' + csrftoken
-            headers['Referer'] = login_url
+            headers["Cookie"] = "csrftoken=" + csrftoken
+            headers["Referer"] = login_url
 
             print("Logging into Platform to get the session id")
             r2 = requests.post(login_url, verify=verify, data=data, headers=headers, timeout=60)
-            session_id = r2.cookies['sessionid']
+            session_id = r2.cookies["sessionid"]
         except Exception as e:
             print("Unable to get session id from the platform. Error: " + str(e))
             sys.exit(1)
@@ -440,8 +433,8 @@ def main():
         connector.print_progress_message = True
 
         if session_id is not None:
-            in_json['user_session_token'] = session_id
-            connector._set_csrf_info(csrftoken, headers['Referer'])
+            in_json["user_session_token"] = session_id
+            connector._set_csrf_info(csrftoken, headers["Referer"])
 
         ret_val = connector._handle_action(json.dumps(in_json), None)
         print(json.dumps(json.loads(ret_val), indent=4))
@@ -449,5 +442,5 @@ def main():
     sys.exit(0)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
