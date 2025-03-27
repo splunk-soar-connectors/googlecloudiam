@@ -35,11 +35,11 @@
         "wheel": [
             {
                 "module": "cachetools",
-                "input_file": "wheels/py3/cachetools-4.2.4-py3-none-any.whl"
+                "input_file": "wheels/py3/cachetools-5.5.2-py3-none-any.whl"
             },
             {
                 "module": "google_api_core",
-                "input_file": "wheels/py3/google_api_core-2.8.2-py3-none-any.whl"
+                "input_file": "wheels/py3/google_api_core-2.24.2-py3-none-any.whl"
             },
             {
                 "module": "google_api_python_client",
@@ -47,7 +47,7 @@
             },
             {
                 "module": "google_auth",
-                "input_file": "wheels/shared/google_auth-2.22.0-py2.py3-none-any.whl"
+                "input_file": "wheels/shared/google_auth-2.38.0-py2.py3-none-any.whl"
             },
             {
                 "module": "google_auth_httplib2",
@@ -55,27 +55,31 @@
             },
             {
                 "module": "googleapis_common_protos",
-                "input_file": "wheels/shared/googleapis_common_protos-1.56.3-py2.py3-none-any.whl"
+                "input_file": "wheels/shared/googleapis_common_protos-1.63.1-py2.py3-none-any.whl"
             },
             {
                 "module": "httplib2",
                 "input_file": "wheels/py3/httplib2-0.22.0-py3-none-any.whl"
             },
             {
+                "module": "proto_plus",
+                "input_file": "wheels/py3/proto_plus-1.26.1-py3-none-any.whl"
+            },
+            {
                 "module": "protobuf",
-                "input_file": "wheels/py36/protobuf-3.19.5-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl"
+                "input_file": "wheels/py39/protobuf-3.19.5-cp39-cp39-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl"
             },
             {
                 "module": "pyasn1",
-                "input_file": "wheels/shared/pyasn1-0.5.1-py2.py3-none-any.whl"
+                "input_file": "wheels/py3/pyasn1-0.6.1-py3-none-any.whl"
             },
             {
                 "module": "pyasn1_modules",
-                "input_file": "wheels/shared/pyasn1_modules-0.3.0-py2.py3-none-any.whl"
+                "input_file": "wheels/py3/pyasn1_modules-0.4.1-py3-none-any.whl"
             },
             {
                 "module": "pyparsing",
-                "input_file": "wheels/py3/pyparsing-3.1.4-py3-none-any.whl"
+                "input_file": "wheels/py3/pyparsing-3.2.3-py3-none-any.whl"
             },
             {
                 "module": "rsa",
