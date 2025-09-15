@@ -1,9 +1,9 @@
 # Google Cloud IAM
 
-Publisher: Splunk Community \
-Connector Version: 1.0.6 \
-Product Vendor: Google \
-Product Name: Cloud IAM \
+Publisher: Splunk Community <br>
+Connector Version: 1.0.6 <br>
+Product Vendor: Google <br>
+Product Name: Cloud IAM <br>
 Minimum Product Version: 5.3.5
 
 This app integrates with Google Cloud IAM
@@ -31,20 +31,20 @@ VARIABLE | REQUIRED | TYPE | DESCRIPTION
 
 ### Supported Actions
 
-[test connectivity](#action-test-connectivity) - Validate the asset configuration for connectivity using supplied configuration \
-[enable serviceaccount](#action-enable-serviceaccount) - Enables a ServiceAccount that was disabled previously \
-[disable serviceaccount](#action-disable-serviceaccount) - Disables a ServiceAccount immediately \
-[get serviceaccount](#action-get-serviceaccount) - Gets a ServiceAccount \
-[list serviceaccountkey](#action-list-serviceaccountkey) - Lists every ServiceAccountKey for a service account \
-[get serviceaccountkey](#action-get-serviceaccountkey) - Gets a ServiceAccountKey \
-[delete serviceaccountkey](#action-delete-serviceaccountkey) - Deletes a ServiceAccountKey \
+[test connectivity](#action-test-connectivity) - Validate the asset configuration for connectivity using supplied configuration <br>
+[enable serviceaccount](#action-enable-serviceaccount) - Enables a ServiceAccount that was disabled previously <br>
+[disable serviceaccount](#action-disable-serviceaccount) - Disables a ServiceAccount immediately <br>
+[get serviceaccount](#action-get-serviceaccount) - Gets a ServiceAccount <br>
+[list serviceaccountkey](#action-list-serviceaccountkey) - Lists every ServiceAccountKey for a service account <br>
+[get serviceaccountkey](#action-get-serviceaccountkey) - Gets a ServiceAccountKey <br>
+[delete serviceaccountkey](#action-delete-serviceaccountkey) - Deletes a ServiceAccountKey <br>
 [create serviceaccountkey](#action-create-serviceaccountkey) - Creates a ServiceAccountKey
 
 ## action: 'test connectivity'
 
 Validate the asset configuration for connectivity using supplied configuration
 
-Type: **test** \
+Type: **test** <br>
 Read only: **True**
 
 #### Action Parameters
@@ -59,7 +59,7 @@ No Output
 
 Enables a ServiceAccount that was disabled previously
 
-Type: **correct** \
+Type: **correct** <br>
 Read only: **False**
 
 #### Action Parameters
@@ -84,7 +84,7 @@ summary.total_objects_successful | numeric | | 1 |
 
 Disables a ServiceAccount immediately
 
-Type: **contain** \
+Type: **contain** <br>
 Read only: **False**
 
 #### Action Parameters
@@ -109,7 +109,7 @@ summary.total_objects_successful | numeric | | 1 |
 
 Gets a ServiceAccount
 
-Type: **investigate** \
+Type: **investigate** <br>
 Read only: **True**
 
 #### Action Parameters
@@ -139,7 +139,7 @@ summary.total_objects_successful | numeric | | 1 |
 
 Lists every ServiceAccountKey for a service account
 
-Type: **investigate** \
+Type: **investigate** <br>
 Read only: **True**
 
 #### Action Parameters
@@ -169,7 +169,7 @@ summary.total_objects_successful | numeric | | 1 |
 
 Gets a ServiceAccountKey
 
-Type: **investigate** \
+Type: **investigate** <br>
 Read only: **True**
 
 #### Action Parameters
@@ -201,7 +201,7 @@ summary.total_objects_successful | numeric | | 1 |
 
 Deletes a ServiceAccountKey
 
-Type: **generic** \
+Type: **generic** <br>
 Read only: **False**
 
 #### Action Parameters
@@ -228,7 +228,7 @@ summary.total_objects_successful | numeric | | 1 |
 
 Creates a ServiceAccountKey
 
-Type: **generic** \
+Type: **generic** <br>
 Read only: **False**
 
 #### Action Parameters

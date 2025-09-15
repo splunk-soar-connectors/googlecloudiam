@@ -685,7 +685,7 @@
             },
             {
                 "module": "google_api_core",
-                "input_file": "wheels/py3/google_api_core-2.25.0rc0-py3-none-any.whl"
+                "input_file": "wheels/py3/google_api_core-2.25.1-py3-none-any.whl"
             },
             {
                 "module": "google_api_python_client",
@@ -693,7 +693,7 @@
             },
             {
                 "module": "google_auth",
-                "input_file": "wheels/shared/google_auth-2.39.0-py2.py3-none-any.whl"
+                "input_file": "wheels/shared/google_auth-2.40.3-py2.py3-none-any.whl"
             },
             {
                 "module": "google_auth_httplib2",
@@ -701,11 +701,11 @@
             },
             {
                 "module": "googleapis_common_protos",
-                "input_file": "wheels/shared/googleapis_common_protos-1.63.1-py2.py3-none-any.whl"
+                "input_file": "wheels/py3/googleapis_common_protos-1.70.0-py3-none-any.whl"
             },
             {
                 "module": "httplib2",
-                "input_file": "wheels/py3/httplib2-0.22.0-py3-none-any.whl"
+                "input_file": "wheels/py3/httplib2-0.30.2-py3-none-any.whl"
             },
             {
                 "module": "proto_plus",
@@ -713,7 +713,7 @@
             },
             {
                 "module": "protobuf",
-                "input_file": "wheels/py39/protobuf-3.19.5-cp39-cp39-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl"
+                "input_file": "wheels/py3/protobuf-4.25.8-cp37-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl"
             },
             {
                 "module": "pyasn1",
@@ -733,7 +733,7 @@
             },
             {
                 "module": "uritemplate",
-                "input_file": "wheels/shared/uritemplate-4.1.1-py2.py3-none-any.whl"
+                "input_file": "wheels/py3/uritemplate-4.2.0-py3-none-any.whl"
             }
         ]
     },
@@ -745,7 +745,7 @@
             },
             {
                 "module": "google_api_core",
-                "input_file": "wheels/py3/google_api_core-2.25.0rc0-py3-none-any.whl"
+                "input_file": "wheels/py3/google_api_core-2.25.1-py3-none-any.whl"
             },
             {
                 "module": "google_api_python_client",
@@ -753,7 +753,7 @@
             },
             {
                 "module": "google_auth",
-                "input_file": "wheels/shared/google_auth-2.39.0-py2.py3-none-any.whl"
+                "input_file": "wheels/shared/google_auth-2.40.3-py2.py3-none-any.whl"
             },
             {
                 "module": "google_auth_httplib2",
@@ -761,11 +761,11 @@
             },
             {
                 "module": "googleapis_common_protos",
-                "input_file": "wheels/shared/googleapis_common_protos-1.63.1-py2.py3-none-any.whl"
+                "input_file": "wheels/py3/googleapis_common_protos-1.70.0-py3-none-any.whl"
             },
             {
                 "module": "httplib2",
-                "input_file": "wheels/py3/httplib2-0.22.0-py3-none-any.whl"
+                "input_file": "wheels/py3/httplib2-0.30.2-py3-none-any.whl"
             },
             {
                 "module": "proto_plus",
@@ -773,7 +773,7 @@
             },
             {
                 "module": "protobuf",
-                "input_file": "wheels/shared/protobuf-3.19.5-py2.py3-none-any.whl"
+                "input_file": "wheels/py3/protobuf-4.25.8-cp37-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl"
             },
             {
                 "module": "pyasn1",
@@ -793,7 +793,7 @@
             },
             {
                 "module": "uritemplate",
-                "input_file": "wheels/shared/uritemplate-4.1.1-py2.py3-none-any.whl"
+                "input_file": "wheels/py3/uritemplate-4.2.0-py3-none-any.whl"
             }
         ]
     }
