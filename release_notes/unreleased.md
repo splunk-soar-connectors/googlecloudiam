@@ -1,3 +1,1 @@
 **Unreleased**
-* update protobuf dependency version
-* update pre-commit version
